@@ -1,0 +1,18 @@
+.containerWeatherResume {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.currentWeather {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.daysWeather {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+}
