@@ -1,17 +1,21 @@
 import React from "react";
 import { WeatherSphere } from "../WeatherSphere";
 import "./style.css";
+import { WeatherContext } from "../../Contexts/WeatherContext";
 
 function WeatherResume() {
+  const { location, data } = React.useContext(WeatherContext);
+
   return (
     <div className="containerWeatherResume">
+      <p>{}</p>
       <div className="currentWeather">
-        <WeatherSphere />
+        <WeatherSphere current={true} />
       </div>
       <div className="daysWeather">
-        <WeatherSphere />
-        <WeatherSphere />
-        <WeatherSphere />
+        <WeatherSphere day={0} />
+        <WeatherSphere day={1} />
+        <WeatherSphere day={2} />
       </div>
     </div>
   );

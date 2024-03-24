@@ -4,13 +4,16 @@ import { WeatherSphere } from "./Components/WeatherSphere";
 import { WeatherResume } from "./Components/WeatherResume";
 import { WeatherDayDetail } from "./Components/WeatherDayDetail";
 import { WeatherLocation } from "./Components/WeatherLocation";
+import { WeatherProvider } from "./Contexts/WeatherContext";
 
 function App() {
   return (
     <div className="App">
-      <WeatherLocation />
-      <WeatherResume />
-      <WeatherDayDetail />
+      <WeatherProvider>
+        <WeatherLocation />
+        <WeatherResume />
+        <WeatherDayDetail />
+      </WeatherProvider>
     </div>
   );
 }
