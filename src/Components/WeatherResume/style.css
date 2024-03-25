@@ -1,18 +1,20 @@
 .containerWeatherResume {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 40px;
 }
 
 .currentWeather {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height: 150px;
 }
 
 .daysWeather {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 16px;
+    gap: 50px;
+    height: 150px;
 }

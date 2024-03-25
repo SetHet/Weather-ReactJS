@@ -16,6 +16,7 @@ function WeatherResume() {
         <WeatherSphere day={0} />
         <WeatherSphere day={1} />
         <WeatherSphere day={2} />
+        <WeatherSphere day={3} />
       </div>
     </div>
   );

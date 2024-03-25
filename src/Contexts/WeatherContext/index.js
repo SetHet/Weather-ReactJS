@@ -7,7 +7,7 @@ function WeatherProvider({ children }) {
   const [data, setData] = React.useState({});
 
   React.useEffect(() => {
-    const apiurl = `https://api.open-meteo.com/v1/forecast?latitude=-30&longitude=-71&current=temperature_2m&daily=temperature_2m_max,temperature_2m_min&wind_speed_unit=ms&timezone=GMT&past_days=3&forecast_days=1`;
+    const apiurl = `https://api.open-meteo.com/v1/forecast?latitude=-30&longitude=-71&current=temperature_2m&daily=temperature_2m_max,temperature_2m_min&wind_speed_unit=ms&timezone=GMT&past_days=0&forecast_days=5`;
 
     fetch(apiurl)
       .then((response) => response.json())
