@@ -8,13 +8,16 @@ import { WeatherProvider } from "./Contexts/WeatherContext";
 
 function App() {
   return (
-    <div className="App">
-      <WeatherProvider>
-        <WeatherLocation />
-        <WeatherResume />
-        <WeatherDayDetail />
-      </WeatherProvider>
-    </div>
+    <>
+      <div className="App">
+        <WeatherProvider>
+          <WeatherLocation />
+          <WeatherResume />
+          <WeatherDayDetail />
+        </WeatherProvider>
+      </div>
+      <img src="/background.png" className="backgroundMain" />
+    </>
   );
 }
 

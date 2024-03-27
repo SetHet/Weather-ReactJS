@@ -7,5 +7,15 @@
   align-items: center;
   gap: 32px;
 
-  background-color: rgb(116, 246, 255);
+  /* background-color: rgb(116, 246, 255); */
+  /* background-image: url("/background.png"); */
+  z-index: 1;
+}
+
+.backgroundMain {
+  position: fixed;
+  min-height: 100dvh;
+  min-width: 100dvw;
+  z-index: -100;
+  top: 0;
 }
