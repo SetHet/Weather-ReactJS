@@ -32,14 +32,16 @@ function WeatherSphere({ loading, current, day, location, temperature }) {
         <div className="Sphere">
           {current ? (
             <div>
-              <div className="infoNow">Ahora</div>
-              <div className="infoTempNow">{`${dataCurrent.temperature_2m}  ${data.current_units.temperature_2m}`}</div>
+              <div className="info infoNow">Ahora</div>
+              <div className="info infoTempNow">{`${dataCurrent.temperature_2m}  ${data.current_units.temperature_2m}`}</div>
             </div>
           ) : (
             <div>
-              <div className="infoDate">{`${days[day]}`}</div>
-              <div className="infoTempMin">{`${data.daily.temperature_2m_min[day]} ${data.daily_units.temperature_2m_min}`}</div>
-              <div className="infoTempMax">{`${data.daily.temperature_2m_max[day]} ${data.daily_units.temperature_2m_max}`}</div>
+              <div className="info infoDate">{`${days[day]}`}</div>
+              <div className="infoTempMMContainer">
+                <div className="info infoTempMin">{`${data.daily.temperature_2m_min[day]} ${data.daily_units.temperature_2m_min}`}</div>
+                <div className="info infoTempMax">{`${data.daily.temperature_2m_max[day]} ${data.daily_units.temperature_2m_max}`}</div>
+              </div>
             </div>
           )}
         </div>
