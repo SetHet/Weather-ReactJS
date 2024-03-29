@@ -10,7 +10,9 @@ function WeatherResume() {
     <div className="containerWeatherResume">
       <div className="containerTitle">
         <h1>
-          {location
+          {data.error
+            ? `${data.reason}`
+            : location
             ? location.name
               ? `${location.name}, ${location.country}`
               : `${location.latitude},${location.longitude}, ${data.timezone}`

@@ -26,7 +26,14 @@ function WeatherProvider({ children }) {
         console.log(json);
         return json;
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.log(error);
+        // const ejson = {
+        //   error: error.reason,
+        // };
+        // setData(ejson);
+        setData(error);
+      });
     //console.log(data);
   }, [location]);
 

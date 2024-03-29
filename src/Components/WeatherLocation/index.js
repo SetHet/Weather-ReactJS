@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import { WeatherContext } from "../../Contexts/WeatherContext";
+import { getGeolocationCoords } from "../../Utils/GeoParse";
 
 function WeatherLocation() {
   const {
@@ -19,7 +20,13 @@ function WeatherLocation() {
   }
 
   function actionSearchLocation(event) {
-    OpenLocationList(nameSearch);
+    const parseGeo = getGeolocationCoords(nameSearch);
+    if (parseGeo) {
+      UpdateLocationOnlyCoords(parseGeo.latitude, parseGeo.longitude);
+      setNameSearch("");
+    } else {
+      OpenLocationList(nameSearch);
+    }
   }
 
   function actionGetGeolocation() {
@@ -56,7 +63,9 @@ function WeatherLocation() {
             location
               ? `${location.name || "city"} | ${
                   location.country || "country"
-                } | ${location.latitude},${location.longitude}`
+                } | ${location.latitude || "latitude"},${
+                  location.longitude || "longitude"
+                }`
               : `Santiago`
           }
         ></input>
