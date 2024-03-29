@@ -9,6 +9,7 @@ function WeatherLocation() {
     OpenLocationList,
     CloseLocationList,
     UpdateLocation,
+    UpdateLocationOnlyCoords,
   } = React.useContext(WeatherContext);
 
   const [nameSearch, setNameSearch] = React.useState("santiago");
@@ -21,9 +22,25 @@ function WeatherLocation() {
     OpenLocationList(nameSearch);
   }
 
+  function actionGetGeolocation() {
+    navigator.geolocation.getCurrentPosition(
+      (geo) => {
+        console.log(geo);
+        UpdateLocationOnlyCoords(geo.coords.latitude, geo.coords.longitude);
+        setNameSearch("");
+      },
+      (error) => console.error(error)
+    );
+  }
+
   return (
     <div className="containerLocation">
-      <button className="buttonLocation buttonGeoLocation">🗺️</button>
+      <button
+        className="buttonLocation buttonGeoLocation"
+        onClick={actionGetGeolocation}
+      >
+        🗺️
+      </button>
       <div className="containerLocationOptions">
         <input
           className="locationSearch"
@@ -37,7 +54,9 @@ function WeatherLocation() {
           }}
           placeholder={
             location
-              ? `${location.name} | ${location.country} | ${location.latitude},${location.longitude}`
+              ? `${location.name || "city"} | ${
+                  location.country || "country"
+                } | ${location.latitude},${location.longitude}`
               : `Santiago`
           }
         ></input>

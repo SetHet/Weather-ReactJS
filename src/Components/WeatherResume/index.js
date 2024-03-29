@@ -11,7 +11,9 @@ function WeatherResume() {
       <div className="containerTitle">
         <h1>
           {location
-            ? `${location.name}, ${location.country}`
+            ? location.name
+              ? `${location.name}, ${location.country}`
+              : `${location.latitude},${location.longitude}, ${data.timezone}`
             : "Choose a location ☝️"}
         </h1>
       </div>

@@ -55,6 +55,12 @@ function WeatherProvider({ children }) {
     }
   }
 
+  function UpdateLocationOnlyCoords(latitude, longitude) {
+    const json = { latitude, longitude };
+    console.log(json);
+    setLocation(json);
+  }
+
   const values = {
     location,
     data,
@@ -62,6 +68,7 @@ function WeatherProvider({ children }) {
     CloseLocationList,
     locationList,
     UpdateLocation,
+    UpdateLocationOnlyCoords,
   };
 
   return (
