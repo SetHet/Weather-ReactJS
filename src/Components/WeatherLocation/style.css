@@ -1,0 +1,72 @@
+.containerLocation {
+    z-index: 2;
+    height: 30px;
+    width: 500px;
+    max-width: 90%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.containerLocationOptions {
+    /* height: 50px; */
+    width: 85%;
+    margin: 0 13px 0 8px;
+}
+
+.locationSearch {
+    width: 100%;
+    padding: 2px;
+    border: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.96);
+    font-size: 20px;
+}
+
+.locationList {
+    list-style: none;
+    padding: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0 0 10px 10px;
+    margin-top: 0;
+    background-color: rgba(255, 255, 255, 0.96);
+    width: 100%;
+    overflow: hidden;
+    max-height: 1000px;
+    transition-delay: 0ms, 0ms, 0ms;
+    transition-property: max-height, border, padding;
+    transition-duration: 700ms, 0ms, 0ms;
+    transition-timing-function: linear;
+}
+
+.locationList--hidden {
+    max-height: 0px;
+    border: 0px solid rgba(255, 255, 255, 0.5);
+    padding: 0px;
+    transition-delay: 0ms, 700ms, 700ms;
+}
+
+.locationList li {
+    margin: 0 8px 0 8px;
+}
+
+.locationList .locationLi {
+    cursor: pointer;
+}
+
+.locationList .locationLi:hover {
+    background-color: rgb(170, 255, 255);
+    border-radius: 5px;
+}
+
+.buttonLocation {
+    cursor: pointer;
+}
+
+.buttonGeoLocation {
+    height: 29px;
+}
+
+.buttonSearchLocation {
+    height: 29px;
+}

@@ -1,8 +1,21 @@
+
 .containerWeatherResume {
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
+
+.containerTitle {
+    width: 100%;
+    height: 50px;
+}
+
+.containerTitle h1{
+    margin: auto;
+    text-align: center;
+}
+
+
 
 .currentWeather {
     display: flex;

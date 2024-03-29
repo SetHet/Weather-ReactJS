@@ -8,7 +8,13 @@ function WeatherResume() {
 
   return (
     <div className="containerWeatherResume">
-      <p>{}</p>
+      <div className="containerTitle">
+        <h1>
+          {location
+            ? `${location.name}, ${location.country}`
+            : "Choose a location ☝️"}
+        </h1>
+      </div>
       <div className="currentWeather">
         <WeatherSphere current={true} />
       </div>

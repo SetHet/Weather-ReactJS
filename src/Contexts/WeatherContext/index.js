@@ -3,11 +3,21 @@ import React from "react";
 const WeatherContext = React.createContext();
 
 function WeatherProvider({ children }) {
-  const [location, setLocation] = React.useState("Chile");
+  const [location, setLocation] = React.useState();
+  const [locationList, setLocationList] = React.useState({ active: false });
   const [data, setData] = React.useState({});
 
   React.useEffect(() => {
-    const apiurl = `https://api.open-meteo.com/v1/forecast?latitude=-33.4569&longitude=-70.6483&current=temperature_2m&hourly=temperature_2m,precipitation_probability,rain,weather_code,cloud_cover,wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min&wind_speed_unit=ms&timezone=auto&past_hours=24&forecast_hours=24`;
+    let coords = {
+      la: 41.47366,
+      lo: -84.81468,
+    };
+
+    if (location) {
+      coords.la = location.latitude;
+      coords.lo = location.longitude;
+    }
+    const apiurl = `https://api.open-meteo.com/v1/forecast?latitude=${coords.la}&longitude=${coords.lo}&current=temperature_2m&hourly=temperature_2m,precipitation_probability,rain,weather_code,cloud_cover,wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min&wind_speed_unit=ms&timezone=auto&past_hours=24&forecast_hours=24`;
 
     fetch(apiurl)
       .then((response) => response.json())
@@ -20,9 +30,39 @@ function WeatherProvider({ children }) {
     //console.log(data);
   }, [location]);
 
+  function OpenLocationList(name) {
+    const apiurl_location = `https://geocoding-api.open-meteo.com/v1/search?name=${name}&count=20&language=en&format=json`;
+
+    fetch(apiurl_location)
+      .then((response) => response.json())
+      .then((json) => {
+        json.active = true;
+        //json = { active: true, ...json };
+        setLocationList(json);
+        console.log(json);
+      })
+      .catch((error) => console.error(error));
+  }
+
+  function CloseLocationList() {
+    const list = locationList;
+    list.active = false;
+    setLocationList(list);
+  }
+
+  function UpdateLocation(index) {
+    if (locationList.results) {
+      setLocation(locationList.results[index]);
+    }
+  }
+
   const values = {
     location,
     data,
+    OpenLocationList,
+    CloseLocationList,
+    locationList,
+    UpdateLocation,
   };
 
   return (
