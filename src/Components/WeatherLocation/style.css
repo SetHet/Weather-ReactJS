@@ -32,7 +32,7 @@
     background-color: rgba(255, 255, 255, 0.96);
     width: 100%;
     overflow: hidden;
-    max-height: 1000px;
+    max-height: 600px;
     transition-delay: 0ms, 0ms, 0ms;
     transition-property: max-height, border, padding;
     transition-duration: 700ms, 0ms, 0ms;

@@ -35,7 +35,6 @@ function WeatherLocation() {
           onKeyDown={(event) => {
             if (event.key === "Enter") actionSearchLocation(event);
           }}
-          //onSelect={console.log("buscando")}
           placeholder={
             location
               ? `${location.name} | ${location.country} | ${location.latitude},${location.longitude}`
@@ -49,7 +48,6 @@ function WeatherLocation() {
           id="locationList"
           onMouseLeave={(event) => {
             CloseLocationList();
-            console.log("out");
           }}
         >
           {locationList.results ? (

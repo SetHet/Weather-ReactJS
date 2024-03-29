@@ -45,8 +45,7 @@ function WeatherProvider({ children }) {
   }
 
   function CloseLocationList() {
-    const list = locationList;
-    list.active = false;
+    const list = { ...locationList, active: false };
     setLocationList(list);
   }
 
