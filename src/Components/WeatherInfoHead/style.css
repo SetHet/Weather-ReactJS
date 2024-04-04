@@ -1,0 +1,15 @@
+.containerWeatherInfoHead {
+    width: 100%;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.WeatherInfoHead {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+        margin: 0;
+    align-content: center;
+    text-align: center;
+}
