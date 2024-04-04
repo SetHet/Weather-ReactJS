@@ -1,12 +1,32 @@
 import React from "react";
 
 const WeatherContext = React.createContext();
+const keyLocationLocalStorage = "LocationJson";
 
 function WeatherProvider({ children }) {
   const [location, setLocation] = React.useState();
   const [locationList, setLocationList] = React.useState({ active: false });
   const [data, setData] = React.useState({});
 
+  // Load Location in Local Storage
+  React.useEffect(() => {
+    const textLocationLocalStorage = localStorage.getItem(
+      keyLocationLocalStorage
+    );
+    if (textLocationLocalStorage && textLocationLocalStorage !== "") {
+      try {
+        let jsonLocationLS = JSON.parse(textLocationLocalStorage);
+        setLocation(jsonLocationLS);
+      } catch (e) {
+        console.error("No se puede parsear el local storage de location");
+        console.error(e);
+      }
+    } else {
+      console.warn("No se puede encontrar el local storage de location");
+    }
+  }, []);
+
+  // Update data weather
   React.useEffect(() => {
     let coords = {
       la: 41.47366,
@@ -58,14 +78,20 @@ function WeatherProvider({ children }) {
 
   function UpdateLocation(index) {
     if (locationList.results) {
-      setLocation(locationList.results[index]);
+      const jsonLocation = locationList.results[index];
+      localStorage.setItem(
+        keyLocationLocalStorage,
+        JSON.stringify(jsonLocation)
+      );
+      setLocation(jsonLocation);
     }
   }
 
   function UpdateLocationOnlyCoords(latitude, longitude) {
-    const json = { latitude, longitude };
-    console.log(json);
-    setLocation(json);
+    const jsonLocation = { latitude, longitude };
+    localStorage.setItem(keyLocationLocalStorage, JSON.stringify(jsonLocation));
+    //console.log(json);
+    setLocation(jsonLocation);
   }
 
   const values = {
