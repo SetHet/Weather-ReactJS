@@ -1,11 +1,12 @@
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { WeatherSphere } from "./Components/WeatherSphere";
 import { WeatherResume } from "./Components/WeatherResume";
 import { WeatherDayDetail } from "./Components/WeatherDayDetail";
 import { WeatherLocation } from "./Components/WeatherLocation";
-import { WeatherProvider } from "./Contexts/WeatherContext";
+import { WeatherContext, WeatherProvider } from "./Contexts/WeatherContext";
 import { WeatherInfoHead } from "./Components/WeatherInfoHead";
+import { WeatherTitle } from "./Components/WeatherTitle";
 
 function App() {
   return (
@@ -14,8 +15,19 @@ function App() {
         <WeatherProvider>
           <WeatherInfoHead />
           <WeatherLocation />
-          <WeatherResume />
-          <WeatherDayDetail />
+          <WeatherTitle />
+          <WeatherContext.Consumer>
+            {({ location }) =>
+              location ? (
+                <>
+                  <WeatherResume />
+                  <WeatherDayDetail />
+                </>
+              ) : (
+                ""
+              )
+            }
+          </WeatherContext.Consumer>
         </WeatherProvider>
       </div>
       <img src="/background.png" className="backgroundMain" />

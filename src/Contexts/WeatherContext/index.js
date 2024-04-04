@@ -28,33 +28,30 @@ function WeatherProvider({ children }) {
 
   // Update data weather
   React.useEffect(() => {
-    let coords = {
-      la: 41.47366,
-      lo: -84.81468,
-    };
-
     if (location) {
+      let coords = {};
       coords.la = location.latitude;
       coords.lo = location.longitude;
-    }
-    const apiurl = `https://api.open-meteo.com/v1/forecast?latitude=${coords.la}&longitude=${coords.lo}&current=temperature_2m&hourly=temperature_2m,precipitation_probability,rain,weather_code,cloud_cover,wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min&wind_speed_unit=ms&timezone=auto&past_hours=24&forecast_hours=24`;
 
-    fetch(apiurl)
-      .then((response) => response.json())
-      .then((json) => {
-        setData(json);
-        console.log(json);
-        return json;
-      })
-      .catch((error) => {
-        console.log(error);
-        // const ejson = {
-        //   error: error.reason,
-        // };
-        // setData(ejson);
-        setData(error);
-      });
-    //console.log(data);
+      const apiurl = `https://api.open-meteo.com/v1/forecast?latitude=${coords.la}&longitude=${coords.lo}&current=temperature_2m&hourly=temperature_2m,precipitation_probability,rain,weather_code,cloud_cover,wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min&wind_speed_unit=ms&timezone=auto&past_hours=24&forecast_hours=24`;
+
+      fetch(apiurl)
+        .then((response) => response.json())
+        .then((json) => {
+          setData(json);
+          console.log(json);
+          return json;
+        })
+        .catch((error) => {
+          console.log(error);
+          // const ejson = {
+          //   error: error.reason,
+          // };
+          // setData(ejson);
+          setData(error);
+        });
+      //console.log(data);
+    }
   }, [location]);
 
   function OpenLocationList(name) {
