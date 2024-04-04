@@ -61,6 +61,8 @@
 
 .buttonLocation {
     cursor: pointer;
+    background-color: transparent;
+    border: 0;
 }
 
 .buttonGeoLocation {
@@ -69,4 +71,9 @@
 
 .buttonSearchLocation {
     height: 29px;
+}
+
+.imgLocation {
+    height: 24px;
+    vertical-align: middle;
 }
