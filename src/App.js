@@ -30,7 +30,7 @@ function App() {
           </WeatherContext.Consumer>
         </WeatherProvider>
       </div>
-      <img src="Weather-ReactJS/background.png" className="backgroundMain" />
+      <img src="/Weather-ReactJS/background.png" className="backgroundMain" />
     </>
   );
 }
