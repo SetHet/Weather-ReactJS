@@ -46,7 +46,10 @@ function WeatherLocation() {
         className="buttonLocation buttonGeoLocation"
         onClick={actionGetGeolocation}
       >
-        <img className="imgLocation" src="/GeoLocalizationIcon.png" />
+        <img
+          className="imgLocation"
+          src="Weather-ReactJS/GeoLocalizationIcon.png"
+        />
       </button>
       <div className="containerLocationOptions">
         <input
@@ -101,7 +104,7 @@ function WeatherLocation() {
         className="buttonLocation buttonSearchLocation"
         onClick={actionSearchLocation}
       >
-        <img className="imgLocation" src="/SearchIcon.png" />
+        <img className="imgLocation" src="Weather-ReactJS/SearchIcon.png" />
       </button>
     </div>
   );
