@@ -29,11 +29,11 @@ function WeatherHourDetail({ date }) {
         <div className="windContainer">
           <div className="direccion">
             <img
-              src="Weather-ReactJS/direccioncardinal.png"
+              src="/Weather-ReactJS/direccioncardinal.png"
               className="dirCardinal"
             />
             <img
-              src="Weather-ReactJS/ArrowNorth.png"
+              src="/Weather-ReactJS/ArrowNorth.png"
               className="dirArrow"
               style={{ transform: `rotate(${windDirection}deg)` }}
             />
