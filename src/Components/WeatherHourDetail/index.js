@@ -1,6 +1,10 @@
 import React from "react";
 import "./style.css";
 import { WeatherContext } from "../../Contexts/WeatherContext";
+import {
+  WeatherCodeMap,
+  WeatherInfoForCode,
+} from "../../Utils/WeatherData/OpenMeteo";
 
 function WeatherHourDetail({ date }) {
   const { data } = React.useContext(WeatherContext);
@@ -16,10 +20,12 @@ function WeatherHourDetail({ date }) {
     data.hourly_units.precipitation_probability;
   const rain = data.hourly.rain[index];
   const rainUnit = data.hourly_units.rain;
+  const weatherCode = data.hourly.weather_code[index];
 
   return (
     <>
       <div className="containerHourDetail">
+        <div>{WeatherInfoForCode(weatherCode).title}</div>
         <div>
           {dataTime.getDate()}/{dataTime.getMonth()} {dataTime.getHours()}hr
         </div>
