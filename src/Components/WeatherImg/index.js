@@ -20,7 +20,7 @@ const Images = {
 function WeatherImg({ children, img, className }) {
   if (!img) img = "default";
 
-  return <img src={Images[img]} className={`img ${className}`} />;
+  return <img src={Images[img]} className={`img ${className}`} alt={img} />;
 }
 
 export { WeatherImg };

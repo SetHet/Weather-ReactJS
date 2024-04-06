@@ -37,14 +37,19 @@ function WeatherHourDetail({ date }) {
             <img
               src="/Weather-ReactJS/direccioncardinal.png"
               className="dirCardinal"
+              alt="🗺️"
             />
             <img
               src="/Weather-ReactJS/ArrowNorth.png"
               className="dirArrow"
               style={{ transform: `rotate(${windDirection}deg)` }}
+              alt="⬆"
             />
           </div>{" "}
           {windSpeed} {windUnit}
+        </div>
+        <div>
+          {precipitationProbability} {precipitationProbabilityUnit}
         </div>
         <div>
           {rain} {rainUnit}
