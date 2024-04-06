@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import { WeatherContext } from "../../Contexts/WeatherContext";
 import { WeatherImg } from "../WeatherImg";
+import { WeatherInfoForCode } from "../../Utils/WeatherData/OpenMeteo";
 
 function WeatherSphere({ loading, current, day, location, temperature }) {
   const { data } = React.useContext(WeatherContext);
@@ -27,7 +28,14 @@ function WeatherSphere({ loading, current, day, location, temperature }) {
   if (data.elevation) {
     return (
       <div>
-        <WeatherImg img="default" className="imgSphere" />
+        <WeatherImg
+          img={
+            current
+              ? WeatherInfoForCode(data.current.weather_code).img
+              : WeatherInfoForCode(data.daily.weather_code[day]).img
+          }
+          className="imgSphere"
+        />
 
         <div className="Sphere">
           {current ? (
