@@ -1,10 +1,7 @@
 import React from "react";
 import "./style.css";
 import { WeatherContext } from "../../Contexts/WeatherContext";
-import {
-  WeatherCodeMap,
-  WeatherInfoForCode,
-} from "../../Utils/WeatherData/OpenMeteo";
+import { WeatherInfoForCode } from "../../Utils/WeatherData/OpenMeteo";
 
 function WeatherHourDetail({ date }) {
   const { data } = React.useContext(WeatherContext);

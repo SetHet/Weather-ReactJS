@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import { WeatherResume } from "./Components/WeatherResume";
 import { WeatherDayDetail } from "./Components/WeatherDayDetail";
@@ -30,7 +30,11 @@ function App() {
           </WeatherContext.Consumer>
         </WeatherProvider>
       </div>
-      <img src="/Weather-ReactJS/background.png" className="backgroundMain" />
+      <img
+        src="/Weather-ReactJS/background.png"
+        className="backgroundMain"
+        alt=""
+      />
     </>
   );
 }
