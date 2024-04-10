@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import { WeatherContext } from "../../Contexts/WeatherContext";
 import { WeatherInfoForCode } from "../../Utils/WeatherData/OpenMeteo";
+import { WeatherIcon } from "../WeatherIcon";
 
 function WeatherHourDetail({ date }) {
   const { data } = React.useContext(WeatherContext);
@@ -22,6 +23,9 @@ function WeatherHourDetail({ date }) {
   return (
     <>
       <div className="containerHourDetail">
+        <div>
+          <WeatherIcon icon="sunny" />
+        </div>
         <div>{WeatherInfoForCode(weatherCode).title}</div>
         <div>
           {dataTime.getDate()}/{dataTime.getMonth()} {dataTime.getHours()}hr
