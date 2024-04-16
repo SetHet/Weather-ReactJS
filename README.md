@@ -22,3 +22,7 @@ Desarrollado con ReactJS y Javascript.
 2. Tener instalado Node v20.12.0 o posterior.
 3. Ejecutar `npm i`, para instalar los paquetes de node.
 4. Ejecutar `npm start` para iniciar el servidor web.
+
+### Guide Default
+
+[⚙️ https://github.com/SetHet/Weather-ReactJS/blob/master/README_Default.md](https://github.com/SetHet/Weather-ReactJS/blob/master/README_Default.md)
