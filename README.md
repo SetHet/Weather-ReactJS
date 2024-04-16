@@ -2,7 +2,7 @@
 
 Pagina web que muestra el clima según la localidad elegida.
 
-Desarrollado con ReactJS, Javascript y CSS.
+Desarrollado con ReactJS, Javascript y CSS. Utilizando la API [🌦️ open-meteo.com](https://open-meteo.com/).
 
 ### Probar página web en Github Pages:
 
